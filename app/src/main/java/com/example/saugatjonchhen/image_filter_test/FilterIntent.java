@@ -160,7 +160,7 @@ public class FilterIntent extends AppCompatActivity {
             if (mIsFlingFired) {
                 mIsFlingFired = false;
             }
-            return false;
+            return true;
         }
 
         @Override
@@ -171,15 +171,17 @@ public class FilterIntent extends AppCompatActivity {
                     imageFromCamera.setImageDrawable(new BitmapDrawable(getResources(), mNextBitmap));
                     shuffleBitmap(true);
                     break;
+
                 }
                 case RIGHT: {
-
                     overlayPreviousBitmap(1);
                     imageFromCamera.setImageDrawable(new BitmapDrawable(getResources(), mPreviousBitmap));
                     shuffleBitmap(false);
                     break;
+
                 }
             }
+
             mIsFlingFired = true;
             mCurrentScrollDirection = GeneralUtils.ScrollDirection.NONE;
             return false;
